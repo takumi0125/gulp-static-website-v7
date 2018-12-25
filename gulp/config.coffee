@@ -2,9 +2,11 @@
 ### config ###
 ##############
 
-_SRC_DIR = "#{__dirname}/../src"
+_PROJECT_DIR = __dirname.replace /\/gulp$/, ''
 
-_PUBLISH_DIR = "#{__dirname}/../htdocs"
+_SRC_DIR = "#{_PROJECT_DIR}/src"
+
+_PUBLISH_DIR = "#{_PROJECT_DIR}/htdocs"
 
 _EXCRUSION_PREFIX = '_'
 
@@ -54,7 +56,7 @@ config =
     html: false
 
   # pugで読み込むjsonファイル
-  pugData: "#{__dirname}/../pugData.coffee"
+  pugData: "#{_PROJECT_DIR}/pugData.coffee"
 
   # JS設定ファイル
   jsEnv: "#{_SRC_DIR}/assets/js/#{_EXCRUSION_PREFIX}env.js"
