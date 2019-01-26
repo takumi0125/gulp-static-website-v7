@@ -15,6 +15,9 @@ _IMG_DIR_NAME = '{img,image,images}'
 _TARGET_BROWSERS = [ 'last 2 versions', 'ie >= 10', 'Android >= 4.4', 'iOS >= 10' ]
 
 config =
+  # プロジェクト名
+  projectName: 'sample'
+
   # ソースディレクトリ
   srcDir: _SRC_DIR
 

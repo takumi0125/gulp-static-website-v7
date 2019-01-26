@@ -17,7 +17,7 @@ module.exports = (gulp, gulpPlugins, config, utils)->
       "#{config.srcDir}/#{config.assetsDir}/js/_lib/TweenMax.min.js"
       "#{config.srcDir}/#{config.assetsDir}/js/_lib/webfontloader.js"
       "#{config.srcDir}/#{config.assetsDir}/js/_lib/underscore-min.js"
-      "#{config.srcDir}/#{config.assetsDir}/js/_lib/axios.js"
+      "#{config.srcDir}/#{config.assetsDir}/js/_lib/axios.min.js"
     ]
     "#{config.publishDir}/#{config.assetsDir}/js"
     'lib'

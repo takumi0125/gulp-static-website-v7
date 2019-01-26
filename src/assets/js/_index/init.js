@@ -1,5 +1,5 @@
-let projectName = 'sample';
-window[projectName] = window[projectName] || {};
+const ENV = require('../_env');
+const g = window[ENV.projectName] = [ENV.projectName] || {};
 
 import log from '../_utils/log/log';
 window.log = log;
