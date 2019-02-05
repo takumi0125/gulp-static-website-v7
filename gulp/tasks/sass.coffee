@@ -2,6 +2,8 @@
 ### sass ###
 ############
 
+through2 = require 'through2'
+
 module.exports = (gulp, gulpPlugins, config, utils)->
   # sass
   gulp.task 'sass', ->
@@ -42,6 +44,14 @@ module.exports = (gulp, gulpPlugins, config, utils)->
     else
       stream = stream.pipe gulpPlugins.sass outputStyle: 'expanded'
       stream = utils.postCSS stream
+
+    # update timestamp
+    stream = stream.pipe through2.obj((file, enc, cb)=>
+      date = new Date();
+      file.stat.atime = date;
+      file.stat.mtime = date;
+      cb(null, file);
+    )
 
     return stream
     .pipe gulp.dest config.publishDir
