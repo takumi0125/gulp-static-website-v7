@@ -48,6 +48,7 @@ bower_components
 .sass-cache
 .cache-loader
 npm-debug.log
+_env.js
 
 #editor
 .idea/
