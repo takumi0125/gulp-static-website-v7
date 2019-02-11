@@ -1,11 +1,11 @@
-// localStorage
+// sessionStorage
 let isSessionStorageAvailable = true;
 let setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage;
 
-if(window.localStorage) {
+if(window.sessionStorage) {
   try {
-    localStorage.setItem('checkIfUseSessionStorage', '1');
-    localStorage.removeItem('checkIfUseSessionStorage');
+    sessionStorage.setItem('checkIfUseSessionStorage', '1');
+    sessionStorage.removeItem('checkIfUseSessionStorage');
   } catch (err) {
     isSessionStorageAvailable = false;
   }
@@ -15,16 +15,16 @@ if(window.localStorage) {
 
 if(isSessionStorageAvailable) {
   setSessionStorage = function(key, value) {
-    return localStorage.setItem(key, value);
+    return sessionStorage.setItem(key, value);
   }
   getSessionStorage = function(key) {
-    return localStorage.getItem(key);
+    return sessionStorage.getItem(key);
   }
   removeSessionStorage = function(key) {
-    return localStorage.removeItem(key);
+    return sessionStorage.removeItem(key);
   }
   clearSessionStorage = function() {
-    return localStorage.clear();
+    return sessionStorage.clear();
   }
 } else {
   setSessionStorage = function() { return null }
