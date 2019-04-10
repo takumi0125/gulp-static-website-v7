@@ -25,6 +25,18 @@ module.exports = (gulp, gulpPlugins, config, utils)->
 
   # contents js
   utils.createWebpackJsTask(
+    "headJs"
+    [ "#{config.srcDir}/#{config.assetsDir}/js/_head/init.js" ]
+    [
+      "#{config.srcDir}/#{config.assetsDir}/js/_utils/**/*"
+      "#{config.srcDir}/#{config.assetsDir}/js/_head/**/*"
+    ]
+    "#{config.publishDir}/#{config.assetsDir}/js"
+    'head'
+  )
+
+  # contents js
+  utils.createWebpackJsTask(
     "indexJs"
     [ "#{config.srcDir}/#{config.assetsDir}/js/_index/init.js" ]
     [
