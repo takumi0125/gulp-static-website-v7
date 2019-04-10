@@ -3,7 +3,7 @@
 // node_moduleとしてrequireはビルドが遅いので、HTML側で読み込む
 export default function() {
   let md = new MobileDetect(navigator.userAgent);
-  let html = document.body.parentElement;
+  let html = document.querySelector('html');
   if (md.tablet()) {
     html.classList.add('is-tablet');
   } else if (md.mobile()) {
