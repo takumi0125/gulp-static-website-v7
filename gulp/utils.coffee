@@ -13,7 +13,7 @@ VueLoaderPlugin = require 'vue-loader/lib/plugin'
 
 autoprefixer = require 'autoprefixer'
 
-_WEBPACK_EXCLUDES = [/\/node_modules\//, /\/bower_components\//, /\/htdocs\//, /\/gulp\//, /\/\.cache-loader\//]
+_WEBPACK_EXCLUDES = [/\/node_modules\//, /\/bower_components\//, /\/htdocs\//, /\/gulp\//, /\/\.cache-loader\//,/\\node_modules\\/, /\\bower_components\\/, /\\htdocs\\/, /\\gulp\\/, /\\\.cache-loader\\/]
 
 module.exports = (gulp, gulpPlugins, config)->
 

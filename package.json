@@ -12,7 +12,7 @@
     "watch:dev": "gulp watch --env=develop",
     "watch:stg": "gulp watch --env=staging",
     "watch:prd": "gulp watch --env=production",
-    "start": "gulp  --env=develop; gulp watch --env=develop"
+    "start": "gulp --env=develop && gulp watch --env=develop"
   },
   "licenses": "MIT",
   "devDependencies": {

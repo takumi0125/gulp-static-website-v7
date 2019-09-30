@@ -5,9 +5,6 @@
 connectSSI = require 'connect-ssi'
 module.exports = (gulp, gulpPlugins, config, utils)->
   gulp.task 'watch', ->
-    # config.pugData更新時
-    gulpPlugins.watch config.pugData,
-
     gulpPlugins.watch utils.createSrcArr('html'),   gulp.series('copyHtml')
     gulpPlugins.watch utils.createSrcArr('css'),    gulp.series('copyCss')
     gulpPlugins.watch utils.createSrcArr('js'),     gulp.series('copyJs')
@@ -29,12 +26,12 @@ module.exports = (gulp, gulpPlugins, config, utils)->
         enable: true
         filter: (fileName)-> return !fileName.match(/.map$/)
       port: 50000
-      open: config.serverDefaultPath
-      directoryListing: true
+      open: 'http://127.0.0.1:50000' + config.serverDefaultPath
+      directoryListing: false
       host: '0.0.0.0'
       https: config.https
       middleware:
         connectSSI
           baseDir: config.publishDir
           ext: '.html'
-    .pipe gulpPlugins.notify "[watch]: start local server. http://localhost:50000#{config.serverDefaultPath}"
+    .pipe gulpPlugins.notify "[watch]: start local server. http://127.0.0.1:50000#{config.serverDefaultPath}"

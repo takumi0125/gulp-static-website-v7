@@ -2,7 +2,7 @@
 ### config ###
 ##############
 
-_PROJECT_DIR = __dirname.replace /\/gulp$/, ''
+_PROJECT_DIR = __dirname.replace(/\/gulp$/, '').replace(/\\gulp$/, '')
 
 _SRC_DIR = "#{_PROJECT_DIR}/src"
 
