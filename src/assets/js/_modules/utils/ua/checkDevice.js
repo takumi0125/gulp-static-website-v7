@@ -1,6 +1,5 @@
 // checkDeivce (use MobileDetect)
-// MobileDetect = require 'mobile-detect'
-// node_moduleとしてrequireはビルドが遅いので、HTML側で読み込む
+import MobileDetect from 'mobile-detect';
 export default function() {
   let md = new MobileDetect(navigator.userAgent);
   let html = document.querySelector('html');
