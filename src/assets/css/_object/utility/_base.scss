@@ -12,3 +12,20 @@
     height: inherit;
   }
 }
+
+[v-cloak] {
+  visibility: hidden;
+}
+
+.u-blockS {
+  @include sizeL {
+    display: none;
+  }
+}
+.u-blockL {
+  display: none;
+
+  @include sizeL {
+    display: block;
+  }
+}

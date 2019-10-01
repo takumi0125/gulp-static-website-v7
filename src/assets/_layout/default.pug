@@ -21,13 +21,29 @@ html(prefix="og:http://ogp.me/ns#")
 
   head
     title #{title}
+
     meta(charset="utf-8")
     meta(name="viewport", content="width=device-width,initial-scale=1")
 
     meta(name="keywords", content=keywords)
     meta(name="description", content=description)
 
+    if author !== undefined
+      meta(name="author" content=author)
+
+    if copyright !== undefined
+      meta(name="copyright" content=copyright)
+
+    //- meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    //- meta(name="format-detection" content="telephone=no")
+
     if showOGP
+      if fbAppId !== undefined
+        meta(property="fb:app_id", content=fbAppId)
+
+      if ogLocale !== undefined
+        meta(property="og:locale", content=ogLocale)
+
       meta(property="og:title", content=ogTitle)
       meta(property="og:site_name", content=ogSiteName || ogTitle)
       meta(property="og:description", content=ogDescription)
@@ -94,8 +110,9 @@ html(prefix="og:http://ogp.me/ns#")
 
 
   body(class=bodyClass)
-    svg.u-svgDef
-      defs.
+    include ./svg.pug
+
+    div.c-loading.p-globalLoading.js-loading.is-noAnim
 
     div#wrapper
       div#contents

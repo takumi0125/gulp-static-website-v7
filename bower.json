@@ -17,9 +17,9 @@
     "es6-promise": "*",
     "gsap": "*",
     "underscore": "*",
-    "three.js": "threejs#*",
     "webfontloader": "*",
     "mobile-detect": "*",
-    "stats.js": "*"
+    "stats.js": "*",
+    "vue": "*"
   }
 }

@@ -1,5 +1,91 @@
 @charset "utf-8";
 
+@mixin onScreenImgAlpha {
+  overflow: hidden;
+  background-color: $colorGray;
+
+  &.is-onScreenItem,
+  .is-onScreenItem & {
+    &:after {
+      @include absoluteTopLeft();
+      content: '';
+      transform: scaleX(1);
+      transform-origin: center right;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($colorAqua, 0.8);
+      transition: transform 1.4s $easeOutExpo;
+    }
+
+    img {
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+  }
+
+  &.is-onScreenItem.is-onScreen,
+  .is-onScreenItem.is-onScreen & {
+    &:after {
+      transform: scaleX(0);
+    }
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin onScreenItemVertical($dir: 1, $directionS: 5vw, $directionL: 30px) {
+  &.is-onScreenItem,
+  .is-onScreenItem & {
+    transform: translateY(#{$directionS * $dir});
+    opacity: 0;
+    transition: transform 1s $easeOutExpo,
+                opacity 1s $easeOutExpo;
+  }
+  &.is-onScreenItem.is-onScreen,
+  .is-onScreenItem.is-onScreen & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @include sizeL {
+    &.is-onScreenItem,
+    .is-onScreenItem & {
+      transform: translateY(#{$directionL * $dir});
+    }
+  }
+}
+
+@mixin onScreenItemHorizontal($dir: 1, $directionS: -3vw, $directionL: -20px) {
+  &.is-onScreenItem,
+  .is-onScreenItem & {
+    transform: translateX(#{$directionS * $dir});
+    opacity: 0;
+    transition: transform 1s $easeOutExpo,
+                opacity 1s $easeOutExpo;
+  }
+  &.is-onScreenItem.is-onScreen,
+  .is-onScreenItem.is-onScreen & {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  @include sizeL {
+    &.is-onScreenItem,
+    .is-onScreenItem & {
+      transform: translateX(#{$directionL * $dir});
+    }
+  }
+}
+
+@function getValueExcludeLineHeight($value, $fontSize, $lineHeight, $useCalc: 0, $anotherFontSize: 0, $anotherLineHeight: 1) {
+  @if $useCalc == 1 {
+    @return calc(#{$value} - #{(($lineHeight - 1) * $fontSize + ($anotherLineHeight - 1) * $anotherFontSize) / 2});
+  } @else {
+    @return $value - (($lineHeight - 1) * $fontSize + ($anotherLineHeight - 1) * $anotherFontSize) / 2;
+  }
+}
+
 @mixin spriteAnimation($animName, $imgPath, $unitWidth, $unitHeight, $numFrames, $fps: 8, $numCols: 8, $iterationCnt: infinite, $direction: normal, $reverse: false, $offsetTop: 0px) {
   animation: $animName $direction step-end (1s / $fps * $numFrames);
   animation-iteration-count: $iterationCnt;
