@@ -139,6 +139,25 @@
   }
 }
 
+@mixin styleS($styles) {
+  @each $property, $value in $styles {
+    #{$property}: #{$value / $spDesignWidthBasis * 100vw};
+  }
+}
+
+@mixin styleL($styles) {
+  @include sizeL {
+    @each $property, $value in $styles {
+      #{$property}: #{$value / $pcDesignWidthBasis * 100vw};
+    }
+  }
+
+  @include sizeLL {
+    @each $property, $value in $styles {
+      #{$property}: #{$value / $pcDesignWidthBasis * $maxWidth * 2};
+    }
+  }
+}
 
 //------------//
 //   easing   //

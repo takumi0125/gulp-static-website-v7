@@ -38,7 +38,7 @@ config =
 
   # gulpPlugins.autoprefixerのオプション
   autoprefixerOpt:
-    browsers: _TARGET_BROWSERS
+    overrideBrowserslist: _TARGET_BROWSERS
     grid: true
 
   # assetsディレクトリへドキュメントルートからの相対パス
